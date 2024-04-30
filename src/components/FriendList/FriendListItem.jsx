@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import css from './FriendList.module.css';
 
 class FriendListItem extends Component {
   constructor(props) {
@@ -12,15 +13,22 @@ class FriendListItem extends Component {
   render() {
     return (
       <div>
-        <li className="item">
-          <span className="status"></span>
+        <li className={css.item}>
+          <span
+            className={css.status}
+            style={
+              this.isOnline
+                ? { backgroundColor: '#44B24A' }
+                : { backgroundColor: '#FF4E58' }
+            }
+          ></span>
           <img
-            className="avatar"
+            className={css.avatar}
             src={this.avatar}
             alt={this.name + ' avatar'}
             width="48"
           />
-          <p className="name">{this.name}</p>
+          <p className={css.name}>{this.name}</p>
         </li>
       </div>
     );

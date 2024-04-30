@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import css from './TransactionHistory.module.css';
 
 class TransactionHistory extends Component {
   constructor(props) {
@@ -9,8 +10,8 @@ class TransactionHistory extends Component {
 
   render() {
     return (
-      <div>
-        <table className="transaction-history">
+      <section className={css.transHistory}>
+        <table>
           <thead>
             <tr>
               <th>Type</th>
@@ -22,16 +23,14 @@ class TransactionHistory extends Component {
           <tbody>
             {this.items.map(item => (
               <tr>
-                <td>
-                  {item.type.slice(0, 1).toUpperCase() + item.type.slice(1)}
-                </td>
+                <td style={{ textTransform: 'capitalize' }}>{item.type}</td>
                 <td>{item.amount}</td>
                 <td>{item.currency}</td>
               </tr>
             ))}
           </tbody>
         </table>
-      </div>
+      </section>
     );
   }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FriendListItem from './FriendListItem';
+import css from './FriendList.module.css';
 
 class FriendList extends Component {
   constructor(props) {
@@ -10,8 +11,8 @@ class FriendList extends Component {
 
   render() {
     return (
-      <div>
-        <ul className="friend-list">
+      <section className={css.friends}>
+        <ul className={css.friendList}>
           {this.friends.map(friend => (
             <FriendListItem
               avatar={friend.avatar}
@@ -20,7 +21,7 @@ class FriendList extends Component {
             />
           ))}
         </ul>
-      </div>
+      </section>
     );
   }
 }
